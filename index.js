@@ -22,6 +22,9 @@ mongoClient.connect("mongodb+srv://asnagesh:Ananya25*@cluster0.ex2qxhz.mongodb.n
 
     db = client.db("studb").collection("student")
     
+app.get("/",(req,res)=>{
+    res.send("Testing...")
+})
 app.post("/addStudent",(req,res)=>{
     db.insertOne(req.body,(err,data)=>{
         if(err){
@@ -58,3 +61,5 @@ app.post("/addStudent",(req,res)=>{
 app.listen("2000",()=>{
     console.log("Server started..")
 })
+
+module.exports=app
